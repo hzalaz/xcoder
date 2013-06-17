@@ -35,6 +35,7 @@ module Xcode
         cmd = Xcode::Shell::Command.new 'xctool'
         cmd << "-workspace #{@scheme.parent.name}.xcworkspace"
         cmd << "-scheme #{@scheme.name}"
+        cmd << "-reporter junit:test-reports.xml"
         cmd << "test"
         cmd
       end
