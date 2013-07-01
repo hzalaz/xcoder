@@ -267,7 +267,8 @@ module Xcode
 
           desc "Test #{project_name}" 
           task :test => [:build] do 
-            test_builder.test
+            report = test_builder.test
+            fail "TESTS FAILED" if report.failed?
           end
 
           desc "Package (.ipa & .dSYM.zip) #{project_name}"
